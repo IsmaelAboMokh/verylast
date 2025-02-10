@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffebf0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .name-header {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 1000;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+       
+        @keyframes glow {
+            from {
+                transform: scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 113, 154, 0.5));
+            }
+            to {
+                transform: scale(1.02);
+                filter: drop-shadow(0 0 20px rgba(255, 113, 154, 0.8));
+            }
+        }
+        .proposal, .container {
+            text-align: center;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+        }
+        .proposal {
+            display: block;
+        }
+        .container {
+            display: none;
+            width: 80%;
+            max-width: 500px;
+        }
+        .slide {
+            display: none;
+            font-size: 20px;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+        .slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 94, 126, 0.2);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        .slide img:hover {
+            transform: scale(1.05);
+        }
+        .slide video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(255, 94, 126, 0.2);
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        .slide video:hover {
+            transform: scale(1.05);
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background: #ff5e7e;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #e04e6a;
+        }
+        #no {
+            position: absolute;
+            transition: transform 0.2s ease;
+        }
+        h2 {
+            color: #ff5e7e;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        /* Add new styles for media queries */
+        @media (min-width: 768px) {
+            .container {
+                width: 90%;
+                max-width: 800px;
+            }
+            .slide img, .slide video {
+                max-height: 70vh;
+                object-fit: contain;
+            }
+        }
+
+        /* Added styles for message */
+        .message {
+            font-size: 18px;
+            color: #ff5e7e;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fadeIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="name-header">
+        <h1 class="name-text">✨ منوى ✨</h1>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="/wavedancer.co.za - Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).mp3" type="audio/mp3">
+    </audio>
+
+    <div class="proposal">
+        <h2>هل تحبينني 💍</h2>
+        <button onclick="handleAccept()">نعم 💖</button>
+        <button id="no">لا 😢</button>
+    </div>
+
+    <!-- Added message text -->
+    <div class="message" style="display:none;">
+        <p>اسف اني مقجدرتش اجبلك هديه هيا نبدأ😢</p>
+    </div>
+
+    <div class="container">
+        <div class="slide active">💖  منوشتي الهبوله, انا احبكي حبا جما, الرجاء عدم ضربي بسبب هذا الموقع, كم اتمنى ان نجتمع قريبا حتى افغص وجهكي الجميل   💖</div>
+        <div class="slide">🌍  لا يوجد مصاعب فالدنيا يمكن ان تبعدني عنكي, قلتيلي مره انو مش رح اتحملك بعرفش بيش قلتي هيج لانو انا بشوفج بني ادمه جامله يا هبولتي لو الكل ضدنا بظل احاول, حتى لو انت ضدي بظل احاول لاني بحبج جثير🌍</div>
+        <div class="slide">💌  كل يوم بالدنيا معج هو نعمه من عند ربنا, وفش اشي بقدر اعملة بالدنيا عشان اعوضج عن التعب الي تعبتي معي بسببي صار عندج جثير مشاكل واسف منشوتي رح اعمل المستحيل عشان اقدر احاول اعوضج واحد بالميه من التعب الي تعبتي معي  💌</div>
+        <div class="slide">✨   دبدوبتي, انا مش بني ادم جامل عندي اغلاط وحده منهن اني بغار جثير, وبسبب هاي الاشياء بخاف بيوم من الايام تزهقي مني, هاظ الاشي انا بقدرش اغيرو انا بحبج جثير وبغار عليج جثير وبخاف عليج اجثر من حالي ولو بايدي بوخذ كل الزعل وكل اشي بضايقج وبحطو فيي انا, انت حبيبتي وحبيبه عمري وحياتي وروحي وبتمنى وبدعي انو هاظ الاشي ميزهقجش بيي بقدرش اعيش بدونج😞 واسف جثير اذا بيوم ازعلتج مني والله مش قصدي   ✨</div>
+        <div class="slide">💞  انا لحد هاي اللحظه مش مصدق انج موافقه علي, ابكا مش طايق حدا مريض هاي والله امبيرح بكا في نغزه بصدري وقت فتنا ديسكورد وحيات الله راحت, انت نعمه نزلت علي يا ربي شككرا عهالنعمه انت الدنيا بالنسبه الي انت كل اشي الي فش مخلوق مملي عيني غيرج كل المشاكل الي صارت وغيرتي واهلج وبعدج معي شكرا حبيبتي انج مياستيش مني صبرتي جثير عشاني, بتمنى كل يوم يمرق عليج يبكا حلو مثل ابتسامتج, ما مصدق نجتمع نخطب اشوف هالظحجه الي الله يديمها يا رب  انت مستوطنه بقلبي وروجي مجتفي فيج وبجتفيش منج مليش بالدنيا غيرج لو في اشي معج وحابه تفضفضي انا دايما وابدا موجود عشانج اذا بدج مساعده تعالي الي اول حدا انا مستحيل اشوف اشي انت بتعملي تافه بدعمج وبحفزج وبخطط معج وبحب انا الي ابكا معج مش حدا ثاني مش مهم مين انا لازم اوقف معج بكلشي انت موقفه معي بكلشي وبتدافعي عني لازم وشفت هاظ الاشي وقت بكا الكل يقنعج ضدي وانت تدافعي عني بتمنى ربنا يجمعنا طول العمر وبالجنه ويقدرني اسعدج طول الحياه واحققلج احلامج انت صرتي جزء مني بقدرش اعيش بدونج يا اجمل اشي صار معي بالدنيا انت والله الوحيده الي بتسعدني بالدنيا, رح احاول كد ما بقدر اخليج تشوفيني سند الج بدون ما تخافي تقوليلي اي اشي الله يخليلي اياج وما يحرمني منج ويجمعني فيج عاجلا وليس اجلا, انت اختي وصاحبتي وامي وحبيبتي انت كلشي الي 💞</div>
+        <div class="slide"><img src="/WhatsApp Image 2025-02-10 at 11.40.59.jpeg" alt="Love Memory 1" loading="lazy"></div>
+        <div class="slide"><img src="/WhatsApp Image 2025-02-10 at 11.41.41.jpeg" alt="Love Memory 2" loading="lazy"></div>
+        <div class="slide"><img src="/WhatsApp Image 2025-02-10 at 11.42.05.jpeg" alt="Love Memory 3" loading="lazy"></div>
+        <div class="slide"><img src="/WhatsApp Image 2025-02-10 at 11.44.37.jpeg" alt="Love Memory 4" loading="lazy"></div>
+        <div class="slide">
+            <video controls autoplay muted loop>
+                <source src="/WhatsApp Video 2025-02-10 at 11.41.18.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="buttons">
+            <button onclick="prevSlide()">⬅ السابق</button>
+            <button onclick="nextSlide()">التالي ➡</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const proposal = document.querySelector('.proposal');
+        const container = document.querySelector('.container');
+        const noButton = document.getElementById('no');
+        const bgMusic = document.getElementById('bg-music');
+        
+        function handleAccept() {
+            proposal.style.display = 'none';
+            const message = document.querySelector('.message');
+            message.style.display = 'block'; // Show the text message
+            
+            // Hide the message after 3 seconds and show the slides
+            setTimeout(() => {
+                message.style.display = 'none';
+                container.style.display = 'block';
+                showSlide(0);
+                bgMusic.play().catch(console.error);
+            }, 3000);
+        }
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        document.addEventListener('mousemove', (event) => {
+            const noRect = noButton.getBoundingClientRect();
+            const distance = Math.hypot(
+                event.clientX - (noRect.left + noRect.width / 2),
+                event.clientY - (noRect.top + noRect.height / 2)
+            );
+            
+            if (distance < 100) {
+                const x = Math.random() * (window.innerWidth - noRect.width);
+                const y = Math.random() * (window.innerHeight - noRect.height);
+                noButton.style.transform = `translate(${x - noRect.left}px, ${y - noRect.top}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
